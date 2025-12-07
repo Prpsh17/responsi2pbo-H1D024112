@@ -8,9 +8,9 @@ Bagaimana cara mendefinisikan konstanta dalam bahasa Java?
 
 Jawaban
 
-perbedaan antara fungsi dan prosedur adalah 1. fungsi menggunakan return prosedur tidak
+1. perbedaan antara fungsi dan prosedur adalah 1. fungsi menggunakan return prosedur tidak
 
-Konstanta (final) digunakan untuk nilai yang tidak boleh berubah selama program berjalan.
+2. Konstanta (final) digunakan untuk nilai yang tidak boleh berubah selama program berjalan.
 Keuntungannya:
 1. Menjaga konsistensi data
 Nilai penting (misal faktor aktivitas, tarif tetap, rumus perhitungan) tidak akan berubah secara tidak sengaja.
@@ -18,3 +18,7 @@ Nilai penting (misal faktor aktivitas, tarif tetap, rumus perhitungan) tidak aka
 Karena programmer lain tidak bisa mengubahnya sembarangan.
 3. Lebih aman dan mudah dipahami
 Pembaca kode tahu bahwa nilai tersebut bersifat tetap dan digunakan sebagai standar.
+
+3. Java akan memberikan error saat kompilasi, karena variabel final tidak boleh diubah setelah diberi nilai.
+
+4. Gunakan keyword final, dan biasanya static jika digunakan sebagai konstanta kelas.
