@@ -1,0 +1,41 @@
+public class EWalletPayment implements PaymentMethod {
+
+    private String namaLayanan;
+    private double nominalPembayaran;
+    private double saldo;
+
+    public EWalletPayment(String namaLayanan, double nominalPembayaran, double saldo) {
+        this.namaLayanan = namaLayanan;
+        this.nominalPembayaran = nominalPembayaran;
+        this.saldo = saldo;
+    }
+
+    @Override
+    public void processPayment() {
+        System.out.println("Memproses pembayaran sebesar " + nominalPembayaran + "...");
+
+        double totalBiaya = nominalPembayaran + getTransactionFee();
+
+        if (saldo >= totalBiaya) {
+            saldo -= totalBiaya;
+            System.out.println("Pembayaran berhasil!");
+        } else {
+            System.out.println("Pembayaran gagal! Saldo tidak cukup.");
+        }
+    }
+
+    @Override
+    public String getPaymentDetails() {
+        return "Pembayaran dilakukan melalui " + namaLayanan;
+    }
+
+    @Override
+    public double getTransactionFee() {
+        return 2000; // fee tetap
+    }
+
+    @Override
+    public double getBalance() {
+        return saldo;
+    }
+}
