@@ -9,3 +9,27 @@
 4. Bagaimana keyword super membantu membedakan atribut yang memiliki nama sama antara parent dan child?
 
 5. Mengapa pendekatan inheritance lebih efisien dibanding menyalin ulang seluruh atribut dan method ke dalam class Member?
+
+JAWABAN
+
+1. Karena Customer adalah superclass dari Member, atribut yang ada di Customer ada di class Customer
+2. Menggunakan ulang perilaku method di superclass, agar tidak menulis ulang kode yang sama dan Menampilkan informasi dasar yang sama untuk semua Customer.
+3. Ketika subclass ingin menambah fitur tetapi tetap menjalankan logika penting milik parent.
+contoh di parent nya:
+void login() {
+    System.out.println("Mencatat aktivitas login di server pusat...");
+}
+ Dan subclass ingiin nambahin log
+ @Override
+void login() {
+    super.login();
+    System.out.println("Menampilkan dashboard khusus Member...");
+}
+
+kalo ga make super.login proses pencatatan nya ga ada
+
+4. Jika subclass kebetulan mendefinisikan variabel dengan nama yang sama dengan milik parent, maka:
+this.nama → milik subclass
+super.nama → milik superclass
+
+5. Menghindari terjadinya tabrakan data, dan supay struktur data nya lebih jelas
